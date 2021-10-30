@@ -12,7 +12,6 @@
         msg: URL in Task2 = {{URL}}
 
 # Declare variable in playlevel, then all the tasks can access that variable
-
 - name: Play level variables 2
   hosts: all
   vars:
@@ -28,12 +27,21 @@
         msg: URL in Task2 = {{URL2}}
 
 # Declaring variable from file
-
 - name: Demo on File level variables
   hosts: all
   vars_files:
-    - 03-sample-vars.yml
+    - file-level-variables.yml
   tasks:
     - name: Access URL
       ansible.builtin.debug:
         msg: URL = {{URL}}
+
+# Task level variable
+- name: Task level variable
+  hosts: all
+  tasks:
+    - name: Access URL from Task level var
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
+      vars:
+        URL: task.variable.com
