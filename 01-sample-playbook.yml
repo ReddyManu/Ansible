@@ -1,13 +1,13 @@
 - name: Play 1
   hosts: all
   tasks:
-    - name: Print Task 1
-      ansible.builtin.debug
-      msg: Task 1
+    - name: Print Task1
+      ansible.builtin.debug:
+        msg: Task 1
 
     - name: Print Task 2
-      ansible.builtin.debug
-      msg: Task 2
+      ansible.builtin.debug:
+        msg: Task 2
 
 - name: Play 2
   hosts: all
