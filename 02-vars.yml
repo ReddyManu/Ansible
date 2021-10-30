@@ -45,3 +45,6 @@
         msg: URL = {{URL}}
       vars:
         URL: task.variable.com
+    - name: Access URL from previous task
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
