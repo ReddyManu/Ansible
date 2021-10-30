@@ -1,0 +1,13 @@
+- name: Play level variables
+  hosts: all
+  vars:
+    URL: play.example.com
+  tasks:
+    - name: Access URL in Task1
+      ansible.builtin.debug:
+        msg: URL in Task1 = {{URL}}
+
+    - name: Access URL in Task2
+      ansible.builtin.debug:
+        msg: URL in Task2 = {{URL}}
+
