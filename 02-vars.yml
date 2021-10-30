@@ -45,6 +45,16 @@
         msg: URL = {{URL}}
       vars:
         URL: task.variable.com
-    - name: Access URL from previous task
+#    - name: Access URL from previous task
+#      ansible.builtin.debug:
+#        msg: URL = {{URL}}
+## We can declare variable on tasks, however the scope is only that task
+
+# Inventory File Variables
+- name: Inventory File Variable
+  hosts: all
+  tasks:
+    - name: Access URL from inventory
       ansible.builtin.debug:
         msg: URL = {{URL}}
+
