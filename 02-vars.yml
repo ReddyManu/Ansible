@@ -58,3 +58,12 @@
       ansible.builtin.debug:
         msg: URL = {{URL}}
 
+# CLI level variable
+- name: CLI level variable
+  hosts: all
+  tasks:
+    - name: Access URL from CLI
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
+
+
