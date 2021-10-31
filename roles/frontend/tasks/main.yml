@@ -13,3 +13,8 @@
   include_role:
     name: common
     tasks_from: download
+
+- name: Remove old content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
