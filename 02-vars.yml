@@ -89,20 +89,22 @@
 #        msg: HOST OS = {{ansible_distribution}}
 ## General good practice is, we dont start our user variable with ansible_ , because those are for System facts from ansible
 
-- name: Run time variables
-  hosts: all
-  tasks:
-    - name: Get uptime command output
-      ansible.builtin.shell: uptime
-      register: OUT
-# OUT is a variable
-    - name: Print OUT
-      ansible.builtin.debug:
-        msg: "{{OUT.stdout}}"
+#- name: Run time variables
+#  hosts: all
+#  tasks:
+#    - name: Get uptime command output
+#      ansible.builtin.shell: uptime
+#      register: OUT
+## OUT is a variable
+#    - name: Print OUT
+#      ansible.builtin.debug:
+#        msg: "{{OUT.stdout}}"
+#
+#    - name: Set fact
+#      ansible.builtin.set_fact:
+#      UPTIME_OUTOUT: "{{OUT.stdout}}"
 
-    - name: Set fact
-      ansible.builtin.set_fact:
-      UPTIME_OUTOUT: "{{OUT.stdout}}"
+
 
 
 
