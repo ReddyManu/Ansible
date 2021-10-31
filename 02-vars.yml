@@ -81,6 +81,8 @@
 
 - name: Ansible Facts
   hosts: all
+  vars:
+    ansible_distribution: sample
   tasks:
     - name: To know HOST OS
       ansible.builtin.debug:
