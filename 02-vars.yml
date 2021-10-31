@@ -84,5 +84,5 @@
   tasks:
     - name: To know HOST OS
       ansible.builtin.debug:
-        msg: HOST OS = {{}ansible_distribution}}
+        msg: HOST OS = {{ansible_distribution}}
 
