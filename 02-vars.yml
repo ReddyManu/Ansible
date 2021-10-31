@@ -98,7 +98,7 @@
 
     - name: Print OUT
       ansible.builtin.debug:
-        msg: "{{OUT}}"
+        msg: "{{OUT.stdout}}"
 
 
 
