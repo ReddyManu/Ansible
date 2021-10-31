@@ -100,7 +100,7 @@
       ansible.builtin.debug:
         msg: "{{OUT.stdout}}"
 
-    - name: set_fact
+    - name: Set fact
       ansible.builtin.set_fact:
       UPTIME_OUTOUT: "{{OUT.stdout}}"
 
