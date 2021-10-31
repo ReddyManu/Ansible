@@ -66,18 +66,23 @@
 #      ansible.builtin.debug:
 #        msg: URL = {{URL}}
 
-- name: Variable precedence
+#- name: Variable precedence
+#  hosts: all
+#  vars:
+#    URL1: play.test.com
+#  vars_files:
+#    - file-level-variables.yml
+#  tasks:
+#    - name: Print URL1
+#      ansible.builtin.debug:
+#        msg: URL1 = {{URL1}}
+#      vars:
+#        URL1: task.test.com
+
+- name: Ansible Facts
   hosts: all
-  vars:
-    URL1: play.test.com
-  vars_files:
-    - file-level-variables.yml
   tasks:
-    - name: Print URL1
+    - name: To know HOST OS
       ansible.builtin.debug:
-        msg: URL1 = {{URL1}}
-      vars:
-        URL1: task.test.com
-
-
+        msg: HOST OS = {ansible_distribution}
 
