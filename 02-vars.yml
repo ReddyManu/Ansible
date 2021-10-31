@@ -79,12 +79,21 @@
 #      vars:
 #        URL1: task.test.com
 
-- name: Ansible Facts
+#- name: Ansible Facts
+#  hosts: all
+#  vars:
+#    ansible_distribution: sample
+#  tasks:
+#    - name: To know HOST OS
+#      ansible.builtin.debug:
+#        msg: HOST OS = {{ansible_distribution}}
+## General good practice is, we dont start our user variable with ansible_ , because those are for System facts from ansible
+
+- name: Run time variables
   hosts: all
-  vars:
-    ansible_distribution: sample
   tasks:
-    - name: To know HOST OS
-      ansible.builtin.debug:
-        msg: HOST OS = {{ansible_distribution}}
+    - name: Get uptime command output
+      ansible.builtin.shell: uptime
+
+
 
