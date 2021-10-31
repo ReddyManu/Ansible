@@ -104,9 +104,13 @@
 #      ansible.builtin.set_fact:
 #      UPTIME_OUTOUT: "{{OUT.stdout}}"
 
-
-
-
+## Variable values need not be quoted while declaring
+## While accessing variables, they need not be quoted, unless if the value is starting with variable
+## Meaning:
+## Hello {{URL}} need not be quoted because this is not starting with variable
+## {{URL}} Hello, then it need to be quoted since it is starting with a variable
+## Booleans while quoted is considered as string
+## Numbers quoted is not considered as string, those are still considered as numbers
 
 
 
