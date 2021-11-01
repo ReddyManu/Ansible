@@ -26,16 +26,16 @@
   roles:
     - redis
 
-#- name: Setup User
-#  hosts: user
-#  become: true
-#  tags: user
-#  roles:
-#    - user
-#
-#- name: Setup Cart
-#  hosts: cart
-#  become: true
-#  tags: cart
-#  roles:
-#    - cart
+- name: Setup User
+  hosts: user
+  become: true
+  tags: user
+  roles:
+    - user
+
+- name: Setup Cart
+  hosts: cart
+  become: true
+  tags: cart
+  roles:
+    - cart
