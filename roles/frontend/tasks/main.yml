@@ -3,12 +3,6 @@
     name: nginx
     state: latest
 
-- name: Start Nginx service
-  ansible.builtin.systemd:
-    state: restarted
-    name: nginx
-    enabled: yes
-
 - name: Download code
   include_role:
     name: common
@@ -24,3 +18,14 @@
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
+
+- name: Copy the Roboshop conf file
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Start Nginx service
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx
+    enabled: yes
