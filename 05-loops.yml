@@ -1,10 +1,20 @@
+#- name: Demo on Loop
+#  hosts: localhost
+#  tasks:
+#    - name: Print all fruits
+#      debug:
+#        msg: "Fruit Name = {{item}}"
+#      loop:
+#         - apple
+#         - banana
+#         - orange
+
 - name: Demo on Loop
   hosts: localhost
+  vars:
+    FRUITS: [ "apple", "banana", "orange" ]
   tasks:
     - name: Print all fruits
       debug:
         msg: "Fruit Name = {{item}}"
-      loop:
-         - apple
-         - banana
-         - orange
+      loop: "{{FRUITS}}"
