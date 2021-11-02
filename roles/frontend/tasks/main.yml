@@ -1,10 +1,10 @@
 - name: Install Nginx
-  yum:
+  ansible.builtin.yum:
     name: nginx
     state: latest
 
 - name: Download code
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
   vars:

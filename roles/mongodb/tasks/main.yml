@@ -21,7 +21,7 @@
     enabled: yes
 
 - name: Download Schema
-  include_role:
+  ansible.builtin.include_role:
     name: common
     tasks_from: download
 
