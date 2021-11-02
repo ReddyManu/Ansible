@@ -1,0 +1,20 @@
+- name: Install Python
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: present
+
+- name: Download code
+  ansible.builtin.include_role:
+      name: common
+      tasks_from: download
+    vars:
+      APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+      APP_USER: roboshop
+
+- name: Install Python dependancies
+  ansible.builtin.pip:
+    requirements: "/home/roboshop/{{COMPONENT}}/my_app/requirements.txt"
+    executable: pip3
