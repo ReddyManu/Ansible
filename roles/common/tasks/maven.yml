@@ -15,6 +15,7 @@
   ansible.builtin.shell:
     cmd: mvn clean package && mv target/shipping-1.0.jar shipping.jar
     chdir: "/home/roboshop/{{COMPONENT}}"
+  become_user: roboshop
 
 - name: Download SystemD
   ansible.builtin.include_role:
