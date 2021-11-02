@@ -3,6 +3,7 @@
   vars:
     URL: google.com
     COUNT: 2
+    CASE: false
   tasks:
     - name: condition on string
       ansible.builtin.debug:
@@ -13,3 +14,8 @@
       ansible.builtin.debug:
         msg: "{{COUNT}}"
       when: COUNT >= 2
+
+    - name: Condition on Boolean
+      ansible.builtin.debug:
+        msg: "Hey"
+      when: CASE
