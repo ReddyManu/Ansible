@@ -1,1 +1,2 @@
 COMPONENT: redis
+APP_TYPE: db

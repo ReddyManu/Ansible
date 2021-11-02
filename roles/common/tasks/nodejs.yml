@@ -3,10 +3,6 @@
     name: [ "nodejs", "make", "gcc-c++" ]
     state: present
 
-- name: Add roboshop app user
-  ansible.builtin.user:
-    name: roboshop
-
 - name: Download code
   ansible.builtin.include_role:
     name: common

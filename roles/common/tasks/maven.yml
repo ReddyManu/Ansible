@@ -1,0 +1,9 @@
+- name: Install Maven
+  ansible.builtin.yum:
+    name: maven
+    state: present
+
+- name: Download code
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
