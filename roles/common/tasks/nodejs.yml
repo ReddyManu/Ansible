@@ -7,18 +7,10 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+  vars:
+    APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
 
-- name: Remove existing code
-  ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
-    state: absent
 
-- name: Copy App code
-  ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}
-    remote_src: yes
-  become_user: roboshop
 
 - name: Install NodeJS dependancies
   community.general.npm:
