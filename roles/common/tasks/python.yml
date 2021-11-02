@@ -10,9 +10,9 @@
   ansible.builtin.include_role:
       name: common
       tasks_from: download
-    vars:
-      APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
-      APP_USER: roboshop
+  vars:
+    APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+    APP_USER: roboshop
 
 - name: Install Python dependancies
   ansible.builtin.pip:
