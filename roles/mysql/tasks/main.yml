@@ -28,5 +28,10 @@
   register: check_new_password
   ignore_errors: yes
 
+- name: Print
+  ansible.builtin.debug:
+    msg: "{{check_new_password}}"
+
+
 
 
