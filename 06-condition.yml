@@ -3,7 +3,8 @@
   vars:
     URL: google.com
     COUNT: 2
-    CASE: false
+#   CASE: false
+    CASE: true
   tasks:
     - name: condition on string
       ansible.builtin.debug:
