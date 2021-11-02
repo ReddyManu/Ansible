@@ -2,9 +2,14 @@
   hosts: localhost
   vars:
     URL: google.com
+    COUNT: 2
   tasks:
     - name: condition on string
       ansible.builtin.debug:
         msg: "{{URL}}"
       when: URL == "google.co.in" or URL == "google.com"
 
+    - name: condition on number
+      ansible.builtin.debug:
+        msg: "{{COUNT}}"
+      when: COUNT >= 2
