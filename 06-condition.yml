@@ -6,4 +6,5 @@
     - name: condition on string
       ansible.builtin.debug:
         msg: "{{URL}}"
-      when: URL == "google.co.in"
+      when: URL == "google.co.in" or URL == "google.com"
+
