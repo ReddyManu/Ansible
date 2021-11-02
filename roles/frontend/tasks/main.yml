@@ -7,11 +7,8 @@
   include_role:
     name: common
     tasks_from: download
-
-- name: Remove old content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+  vars:
+    APP_LOCATION: /usr/share/nginx/html/
 
 - name: Copy the HTDOCS content
   ansible.builtin.copy:
