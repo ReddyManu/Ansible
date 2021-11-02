@@ -2,6 +2,7 @@
   ansible.builtin.user:
     name: roboshop
   when: APP_TYPE == "backend"
+  register: app_user_info
 
 - name: Download {{COMPONENT}} code
   ansible.builtin.unarchive:
