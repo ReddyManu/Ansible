@@ -1,0 +1,9 @@
+- name: Demo on condition
+  hosts: localhost
+  vars:
+    URL: google.com
+  tasks:
+    - name: condition on string
+      ansible.builtin.debug:
+        msg: "{{URL}}"
+      when: URL == "google.co.in"
