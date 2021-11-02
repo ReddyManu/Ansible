@@ -15,17 +15,11 @@
     state: absent
   when: APP_TYPE == "frontend" or APP_TYPE == "backend"
 
-- name: Copy App code
+- name: Copy App Code
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main/
     dest: "{{APP_LOCATION}}"
     remote_src: yes
-  become_user: roboshop
+  become_user: "{{APP_USER}}"
   when: APP_TYPE == "backend"
 
-- name: Copy App code
-  ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: "{{APP_LOCATION}}"
-    remote_src: yes
-  when: APP_TYPE == "frontend"

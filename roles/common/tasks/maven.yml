@@ -9,3 +9,13 @@
     tasks_from: download
   vars:
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+    APP_USER: roboshop
+
+- name: Make maven package
+  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  become_user: roboshop
+
+- name: Download SystemD
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
