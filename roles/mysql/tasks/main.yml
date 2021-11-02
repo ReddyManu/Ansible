@@ -28,10 +28,6 @@
   register: check_new_password
   ignore_errors: yes
 
-- name: Print
-  ansible.builtin.debug:
-    msg: "{{check_new_password}}"
-
 - name: Copy password reset sql file
   ansible.builtin.template:
     src: pass.sql
@@ -41,6 +37,20 @@
 - name: Reset password
   ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD.stdout}}" </tmp/pass.sql
   when: check_new_password.failed
+
+- name: Download Schema
+  include_role:
+    name: common
+    tasks_from: download
+
+- name: Load Schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /tmp/mysql-main/shipping.sql
+    login_user: root
+    login_password: "{{NEW_PASSWORD}}"
+
 
 
 
