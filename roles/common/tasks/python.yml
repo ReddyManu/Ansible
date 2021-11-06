@@ -8,8 +8,8 @@
 
 - name: Download code
   ansible.builtin.include_role:
-      name: common
-      tasks_from: download
+    name: common
+    tasks_from: download
   vars:
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
     APP_USER: roboshop
