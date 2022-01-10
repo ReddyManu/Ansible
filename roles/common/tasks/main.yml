@@ -1,0 +1,2 @@
+- name: Set Hostname
+  shell: set-hostname -skip-apply {{COMPONENT}}
